@@ -2,6 +2,7 @@ import './App.css';
 import Login from './Login/Login';
 import Dashboard from './Dashboard/Dashboard';
 import ErrorPage from './ErrorPage/ErrorPage';
+import Header from './Header/Header';
 import MovieContextProvider from './contexts/MovieContext';
 import {
   BrowserRouter, 
@@ -24,6 +25,7 @@ function App() {
           path="/dashboard"
           component={Dashboard}
         />
+        <Route exact path="/header" component={Header}/>
         </MovieContextProvider>
         <Route
           path="/"

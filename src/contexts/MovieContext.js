@@ -19,10 +19,32 @@ const MovieContextProvider = (props) => {
             });
     }
 
+    // Search movie with title
+    function searchMovie(title) {
+        fetch(`https://www.omdbapi.com/?s=${title}&apikey=${API_KEY}`)
+            .then(response => response.json())
+            .then(jsonResponse => {
+                setMovieList(
+                    jsonResponse.Search
+                );
+            })
+            .catch((error) => {
+                console.log("error: ", error);
+            });
+    }
+
+    function filterByYear(year) {
+        let filteredMovies = movieList.filter((item) => item.Year === year);
+        setMovieList(filteredMovies);
+        console.log("filtered: ", filteredMovies);
+    } 
+
     return(
         <MovieContext.Provider value={{
             movieList,
-            getMovies
+            getMovies,
+            searchMovie,
+            filterByYear,
         }}>
             {props.children}
         </MovieContext.Provider>

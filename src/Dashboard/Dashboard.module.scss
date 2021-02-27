@@ -1,0 +1,19 @@
+.root {
+    display: "flex";
+    flex-wrap: "wrap";
+    justify-content: "space-around";
+    overflow: "hidden";
+    background-color: white;
+}
+.gridList {
+    height: "auto";
+}
+.icon {
+    color: "rgba(255, 255, 255, 0.54)";
+}
+.image {
+    &:hover {
+        opacity: 0.25;
+        cursor: pointer;
+    }
+}
